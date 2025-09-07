@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 import tempfile
 
-app = FastAPI
+app = FastAPI()
 
 def procesar_factura(pdf_path):
     # Leer PDF
