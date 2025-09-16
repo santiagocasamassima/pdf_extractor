@@ -22,8 +22,11 @@ async def procesar_factura_api(
         resultado = extractor.procesar(tmp_path, patrones)
     except FileNotFoundError:
         os.remove(tmp_path)
-        raise HTTPException(status_code=400, detail="Perfil no encontrado")
+        raise HTTPException(status_code=404, detail=f"Perfil '{profile}' no encontrado")
     finally:
-        os.remove(tmp_path)
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
 
     return {"perfil_usado": perfil["name"], "resultado": resultado}
+
+

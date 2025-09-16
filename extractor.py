@@ -4,6 +4,8 @@ import json
 import pandas as pd
 from PyPDF2 import PdfReader
 from datetime import datetime
+from fastapi import HTTPException
+from PyPDF2.errors import PdfReadError  
 
 class PDFExtractor:
     def __init__(self, perfiles_dir="perfiles"):
@@ -17,10 +19,16 @@ class PDFExtractor:
             return json.load(f)
         
     def procesar(self, pdf_path, patrones):
-
-        # Leer PDF
-        reader = PdfReader(pdf_path)
+        try:
+            # Leer PDF
+            reader = PdfReader(pdf_path)
+        except PdfReadError:
+            raise HTTPException(status_code=400, detail="Error al leer el archivo PDF. El archivo puede estar corrupto o no ser un PDF válido.")        
+        
         texto = "\n".join(page.extract_text() for page in reader.pages)
+        
+        if not texto.strip():
+            raise HTTPException(status_code=400, detail="No se pudo extraer texto del PDF. El archivo puede estar protegido o no contener texto seleccionable.")        
         
         # Normalizar con pandas
         lineas = [re.sub(r"\s+", " ", line.strip()) for line in texto.split("\n") if line.strip()]
@@ -35,6 +43,9 @@ class PDFExtractor:
             else:
                 datos_generales[campo] = None
         
+        if not datos_generales:
+            raise HTTPException(status_code=422, detail="No se pudo extraer ningún campo con este perfil")
+       
        # Extras fijos (depende el cliente)
         datos_generales["Deposito"] = 1
         datos_generales["Fecha_Contable"] = datetime.today().strftime("%d/%m/%Y")
