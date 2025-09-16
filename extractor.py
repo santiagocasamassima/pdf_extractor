@@ -39,7 +39,7 @@ class PDFExtractor:
         for campo, patron in patrones.items():
             match = df["linea"].str.extract(patron, expand=False).dropna()
             if not match.empty:
-                datos_generales[campo] = match.iloc[0].values[0]
+                datos_generales[campo] = match.iloc[0]   
             else:
                 datos_generales[campo] = None
         
