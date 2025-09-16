@@ -1,5 +1,4 @@
-fastapi
-uvicorn
-pypdf
-pandas
-python-multipart
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+PyPDF2==3.0.1
+pandas==2.2.3

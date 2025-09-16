@@ -1,0 +1,12 @@
+{
+  "name": "factura_ar_basico",
+  "patrones": {
+    "Fecha": "(?i)(?:Fecha(?:\\s+de)?(?:\\s+Emisi[oó]n)?|Emitida\\s+el)[:\\s]+(\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4})",
+    "Nro_Factura": "(?:Factura|FACTURA|FAA)\\s*(?:N°|No|Nº)?\\s*([\\d\\-]+)",
+    "CUIT": "CUIT[:\\s]*([\\d\\-]+)",
+    "Total": "TOTAL\\s*\\$?\\s*([\\d\\.,]+)",
+    "CAE": "CAE[:\\s]*([\\d]+)",
+    "Fecha_vencimiento": "(?i)(?:Fecha(?:\\s+de)?\\s+Vencimiento)[:\\s]+(\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4})",
+    "Condiciones_Venta": "Condiciones(?: de (?:Venta|Pago))?[:\\s]*(.+)"
+  }
+}
