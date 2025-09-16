@@ -6,6 +6,12 @@ from extractor import PDFExtractor
 app = FastAPI()
 extractor = PDFExtractor()
 
+@app.get("/perfiles/")
+def listar_perfiles():
+    perfiles_dir = "perfiles"
+    perfiles = [f.replace(".json", "") for f in os.listdir(perfiles_dir) if f.endswith(".json")]
+    return {"perfiles_disponibles": perfiles}
+
 
 @app.post("/procesar_factura/")
 async def procesar_factura_api(
