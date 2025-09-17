@@ -2,7 +2,7 @@
   "name": "factura_ar_basico",
   "patrones": {
     "Fecha": "(?i)(?:Fecha(?:\\s+de)?(?:\\s+Emisi[oó]n)?|Emitida\\s+el)[:\\s]+(\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4})",
-    "Nro_Factura": "(?:Factura|FACTURA|FAA)\\s*(?:N°|No|Nº)?\\s*([\\d\\-]+)",
+    "Nro_Factura": "(?i)(?:nro\\.?\\s*factura|factura\\s*nro\\.?|número\\s*de\\s*factura|factura[:\\s]*|punto\\s*de\\s*venta[:\\s]*)?\\s*(\\d{4,5}\\s*[-–]\\s*\\d{8})",
     "CUIT": "CUIT[:\\s]*([\\d\\-]+)",
     "Total": "TOTAL\\s*\\$?\\s*([\\d\\.,]+)",
     "CAE": "CAE[:\\s]*([\\d]+)",
