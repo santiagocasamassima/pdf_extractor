@@ -6,7 +6,7 @@
     "CUIT": "CUIT[:\\s]*([\\d\\-]+)",
     "Total": "(?i)(?<!sub)total(?:\\s*(?:a\\s+pagar|final))?[:\\s]*\\$?\\s*([\\d\\.,]+)",
     "CAE": "(?i)c\\s*\\.?\\s*a\\s*\\.?\\s*e\\s*\\.?\\s*(?:n\\s*[o°º]\\.?)?\\s*([0-9]{10,14})",
-    "Fecha_vencimiento": "(?i)(?:fecha\\s*(?:de\\s*)?(?:vencimiento|vto)\\s*:?[\\s]*([0-9]{2}[-/][0-9]{2}[-/][0-9]{4})|([0-9]{2}[-/][0-9]{2}[-/][0-9]{4})[\\s]*fecha\\s*(?:de\\s*)?(?:vencimiento|vto))",
+    "Fecha_vencimiento": "(?i)(?:fecha\\s*(?:de\\s*)?(?:vencimiento|vto)\\s*:?[\\s]*|)([0-9]{2}[-/][0-9]{2}[-/][0-9]{4})(?:(?=\\s*fecha\\s*(?:de\\s*)?(?:vencimiento|vto))|)",
     "Condiciones_Venta": "Condiciones(?: de (?:Venta|Pago))?[:\\s]*(.+)"
   }
 }
