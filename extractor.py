@@ -41,6 +41,9 @@ class PDFExtractor:
             if not match.empty:
                 valor = str(match.iloc[0]).strip()
                 if valor:  # solo si no es string vacío
+                    if campo == "Nro_Factura":
+                    # Normalizar guion → "00003 - 00003231" → "00003-00003231"
+                        valor = re.sub(r"\s*[-–]\s*", "-", valor)
                     datos_generales[campo] = valor
                 else:
                     datos_generales[campo] = None
