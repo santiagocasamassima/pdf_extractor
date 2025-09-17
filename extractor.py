@@ -44,6 +44,13 @@ class PDFExtractor:
                     if campo == "Nro_Factura":
                     # Normalizar guion → "00003 - 00003231" → "00003-00003231"
                         valor = re.sub(r"\s*[-–]\s*", "-", valor)
+                    if campo == "Total" and valor:
+                        # Ej: "12.345,67" → "12345.67"
+                        valor = valor.replace(".", "").replace(",", ".")
+                    try:
+                        valor = float(valor)
+                    except ValueError:
+                        pass
                     datos_generales[campo] = valor
                 else:
                     datos_generales[campo] = None
