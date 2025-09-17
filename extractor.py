@@ -39,7 +39,13 @@ class PDFExtractor:
         for campo, patron in patrones.items():
             match = df["linea"].str.extract(patron, expand=False).dropna()
             if not match.empty:
-                valor = str(match.iloc[0]).strip()
+                if campo == "Fecha_vencimiento":
+                    # Tomar la última coincidencia (ej: vencimiento CAE al pie de factura)
+                    valor = str(match.iloc[-1]).strip()
+                else:
+                    # Para el resto de los campos, seguimos tomando el primero
+                    valor = str(match.iloc[0]).strip()
+                
                 if valor:  # solo si no es string vacío
                     if campo == "Nro_Factura":
                     # Normalizar guion → "00003 - 00003231" → "00003-00003231"
