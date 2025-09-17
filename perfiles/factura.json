@@ -5,7 +5,7 @@
     "Nro_Factura": "(?i)(?:nro\\.?\\s*factura|factura\\s*nro\\.?|número\\s*de\\s*factura|factura[:\\s]*|punto\\s*de\\s*venta[:\\s]*)?\\s*(\\d{4,5}\\s*[-–]\\s*\\d{8})",
     "CUIT": "CUIT[:\\s]*([\\d\\-]+)",
     "Total": "(?i)(?<!sub)total(?:\\s*(?:a\\s+pagar|final))?[:\\s]*\\$?\\s*([\\d\\.,]+)",
-    "CAE": "CAE[:\\s]*([\\d]+)",
+    "CAE": "(?i)c\\.?a\\.?e\\.?\\s*(?:n[o°]?)?\\s*([0-9]{10,14})",
     "Fecha_vencimiento": "(?i)(?:Fecha(?:\\s+de)?\\s+Vencimiento)[:\\s]+(\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4})",
     "Condiciones_Venta": "Condiciones(?: de (?:Venta|Pago))?[:\\s]*(.+)"
   }
