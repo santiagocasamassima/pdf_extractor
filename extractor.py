@@ -39,9 +39,14 @@ class PDFExtractor:
         for campo, patron in patrones.items():
             match = df["linea"].str.extract(patron, expand=False).dropna()
             if not match.empty:
-                datos_generales[campo] = match.iloc[0]   
+                valor = str(match.iloc[0]).strip()
+                if valor:  # solo si no es string vacío
+                    datos_generales[campo] = valor
+                else:
+                    datos_generales[campo] = None
             else:
                 datos_generales[campo] = None
+
         
         if not datos_generales:
             raise HTTPException(status_code=422, detail="No se pudo extraer ningún campo con este perfil")
