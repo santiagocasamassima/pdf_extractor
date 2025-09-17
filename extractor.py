@@ -48,10 +48,12 @@ class PDFExtractor:
                         # Ej: "12.345,67" → "12345.67"
                         valor = valor.replace(".", "").replace(",", ".")
                     try:
-                        valor = float(valor)
+                        valor = float(valor)               
                     except ValueError:
                         pass
                     datos_generales[campo] = valor
+                    if campo == "Fecha_vencimiento" and valor:
+                        valor = valor.replace("-", "/")
                 else:
                     datos_generales[campo] = None
             else:
