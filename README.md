@@ -1,7 +1,3 @@
-¡Listo! 🚀 Acá tenés el **README.md** completo, limpio y preparado para subir directamente a tu repositorio en GitHub:
-
----
-
 
 # PDF Extractor API
 
@@ -10,7 +6,7 @@ Diseñado para ser extensible mediante **perfiles JSON** que contienen expresion
 
 ---
 
-## 🚀 Instalación
+## Instalación
 
 1. **Clonar el repositorio**
 
@@ -34,7 +30,7 @@ Diseñado para ser extensible mediante **perfiles JSON** que contienen expresion
 
 ---
 
-## ▶️ Uso
+## ▶Uso
 
 Levantar el servidor:
 
@@ -46,7 +42,7 @@ Por defecto se inicia en [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ---
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 
 proyecto/
