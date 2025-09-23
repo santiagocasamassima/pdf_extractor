@@ -97,19 +97,11 @@ curl -X POST "http://127.0.0.1:8000/procesar_factura/?profile=factura" \
 ## 🧩 Perfiles
 
 Los **perfiles** definen los patrones de extracción usando expresiones regulares.
-Ejemplo: `perfiles/factura.json`
+Ejemplo: 'perfiles/factura.json'
+
+------
 
 
-{
-  "name": "factura",
-  "patrones": {
-    "Fecha": "(?i)(?:Fecha(?:\\s+de)?(?:\\s+Emisi[oó]n)?|Emitida\\s+el)[:\\s]+(\\d{2}[-\\/\\.]\\d{2}[-\\/\\.]\\d{4})",
-    "CUIT": "(?i)(?:CUIT|RUC|NIF|RFC)[:\\s]*([\\d\\-]+)",
-    "Total": "(?i)(?:TOTAL(?:\\s+A\\s+PAGAR)?|Importe\\s+Total|Monto\\s+Total)[:\\s]*\\$?\\s*([\\d\\.,]+)",
-    "CAE": "(?i)(?:CAE|C[oó]digo\\s+Autorizaci[oó]n)[:\\s]*([\\d]+)"
-  }
-}
----
 
 
 
