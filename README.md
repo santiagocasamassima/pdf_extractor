@@ -109,26 +109,7 @@ Ejemplo: `perfiles/factura.json`
     "CAE": "(?i)(?:CAE|C[oó]digo\\s+Autorizaci[oó]n)[:\\s]*([\\d]+)"
   }
 }
-
-
 ---
 
-## 🧪 Tests rápidos
 
-Podés probar el extractor sin pasar por la API:
-
-
-from extractor import PDFExtractor
-
-extractor = PDFExtractor()
-perfil = extractor.cargar_perfil("factura")
-resultado = extractor.procesar("factura.pdf", perfil["patrones"])
-print(resultado)
-
-
----
-
-## 📜 Licencia
-
-MIT License
 
